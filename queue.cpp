@@ -32,7 +32,7 @@ typedef struct queue
 		new_node->data = a;
 		new_node->next = NULL;
 
-		if (head == NULL && tail == NULL)
+		if (isempty())
 		{
 			head = new_node;
 			tail = new_node;
@@ -44,9 +44,15 @@ typedef struct queue
 
 	void pop()
 	{
-		if (head == NULL)
+		if (isempty())
 		{
 			cout << "ERROR" << endl;
+			return;
+		}
+		else if  (head == tail)
+		{
+			head = NULL;
+			tail = NULL;
 			return;
 		}
 		head = head->next;
@@ -54,10 +60,17 @@ typedef struct queue
 
 	int top()
 	{
-		if (head == NULL)
+		if (isempty())
 			return -1;
 
 		return head->data;
+	}
+
+	bool isempty()
+	{
+		if (head == NULL && tail == NULL)
+			return 1;
+		return 0;
 	}
 }queue;
 
@@ -73,8 +86,9 @@ int main()
 		cout << q.top() << endl;
 		q.pop();
 	}
-	
+	q.push(10);
 	cout << q.top() << endl;
+	q.pop();
 	q.pop();
 	
 	return 0;
