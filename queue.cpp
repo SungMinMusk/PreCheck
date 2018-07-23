@@ -28,7 +28,7 @@ typedef struct queue
 
 	void push(int a)
 	{
-		struct node* new_node = (struct node*)malloc(sizeof(struct node));
+		struct node* new_node = new node;
 		new_node->data = a;
 		new_node->next = NULL;
 
@@ -56,6 +56,7 @@ typedef struct queue
 	{
 		if (head == NULL)
 			return -1;
+
 		return head->data;
 	}
 }queue;
