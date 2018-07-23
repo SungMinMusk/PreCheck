@@ -14,7 +14,6 @@ using namespace std;
 
 	push() - full?
 	pop() - empty?
-  top() - empty -> return -1
 */
 typedef struct node
 {
@@ -56,9 +55,8 @@ typedef struct queue
 	int top()
 	{
 		if (head == NULL)
-		{
 			return -1;
-		}
+
 		return head->data;
 	}
 }queue;
